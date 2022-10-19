@@ -1,6 +1,10 @@
 public class Main {
 
  public static void main(String[] args) {
+
+
+
+
         MyDate d1= new MyDate(6,6,1799);
         Author a1=new Author("Александр","Пушкин", d1);
         Book b1= new Book(1, "Сказка о царе Солтане", a1, "isbn1",10);
@@ -40,7 +44,26 @@ public class Main {
      System.out.println("Осталось "+ b1.getAvailableItems() + " книг "+ b1.getTitle()
              +"(" + b1.getAuthor()+ ")" );
 
+     System.out.println("--------------------------------------------------------------");
+     System.out.println("Осталось "+ b1.getAvailableItems() + " книг "+ b1.getTitle()
+             +"(" + b1.getAuthor()+ ")" );
 
+     b1.setAvailableItems(15);
+
+     System.out.println("Осталось "+ b1.getAvailableItems() + " книг "+ b1.getTitle()
+             +"(" + b1.getAuthor()+ ")" );
+
+     b1.getOut(13.9);
+     System.out.println(b1);
+
+     System.out.println("-----------------------------------------------------------");
+     Book b2= new Book(20,"Сказки народов мира","isbn20",12);
+     System.out.println(b2);
+
+
+     TempClass tempClass = new TempClass("hasd","hhjj","asdfg");
+
+     System.out.println(b1.getAuthorName());
  }
 
 

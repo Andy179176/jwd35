@@ -13,14 +13,21 @@ public class Book {
         this.availableItems = availableItems;
     }
 
+    public Book(long id, String title,  String isbn, int availableItems) {
+        this.id = id;
+        this.title = title;
+        //this.author = author;
+        this.isbn = isbn;
+        this.availableItems = availableItems;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", author=" + author +
+                 (author!=null? ", author=" +author.getName():"") +
                 ", isbn='" + isbn + '\'' +
-                ", availableItems=" + availableItems +
                 '}';
     }
 
@@ -33,6 +40,18 @@ public class Book {
         }
         return availableItems;
     }
+
+    public long getOut(double price){
+        if (checkAvailability()) {
+            availableItems--;
+            System.out.println("Стоимость ипользовааания данной книги: " + price);
+            System.out.println("Выдана книга: " + this);
+        } else {
+            System.out.println("Все книги "+ title+ " разобраны");
+        }
+        return availableItems;
+    }
+
     private boolean checkAvailability(){
         return availableItems>0;
     }
@@ -47,6 +66,8 @@ public class Book {
         return author;
     }
 
+
+
     public long getId() {
         return id;
     }
@@ -54,4 +75,26 @@ public class Book {
     public String getIsbn() {
         return isbn;
     }
+
+
+    public void addNewBook(int num) {
+            this.availableItems+= num;
+
+    }
+
+
+    public void setAvailableItems(int availableItems) {
+        if (availableItems>this.availableItems) {
+            this.availableItems = availableItems;
+        }
+    }
+
+    public String getAuthorName(){
+        if(author!=null){
+            return author.getName();
+        } else {
+            return "автор неизвестен";
+        }
+    }
+
 }
