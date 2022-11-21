@@ -29,8 +29,7 @@ public class Film implements Comparable<Film>{
 
     @Override
     public String toString() {
-        return title + "(" + year + ") " + genre + " " + rating;
-
+        return String.format("%-20s (%d) %-20s %3.2f",title,year,genre,rating);
     }
 
     @Override
